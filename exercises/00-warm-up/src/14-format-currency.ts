@@ -9,7 +9,11 @@ export {};
  */
 
 // You are allowed to change only this function
-function formatCurrency() {}
+function formatCurrency(number): string {
+  return "£" + (parseFloat(number).toFixed(2)) // Converts number to string.
+
+// Alternate sollution: return "£" + (Math.round(number * 100) / 100).toString() 
+}
 
 function calculateSalesTax(price: number) {
   return price * 0.21;

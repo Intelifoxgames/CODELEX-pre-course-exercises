@@ -1,7 +1,9 @@
 export {};
 
-function concatenate(firstWord, secondWord, thirdWord) {
-  // Write the body of this function to concatenate three words together with space between them
+function concatenate(firstWord: string, secondWord: string, thirdWord: string): string {
+  return firstWord.concat(' ').concat(secondWord).concat(' ').concat(thirdWord)
+  // Concat merges two strings without mutating originals. 
+  // In a parameter " " is a joining string (whitespace).
 }
 
 const result = concatenate("Hello", "from", "CODELEX");

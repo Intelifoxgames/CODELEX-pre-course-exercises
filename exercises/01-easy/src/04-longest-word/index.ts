@@ -12,6 +12,17 @@
  * longestWord("fun&!! time") === "time"
  */
 
-function longestWord(sen: string) {}
+function longestWord(sen: string) {
+    let sntcSplt = sen.split(/\W/g) // Split each word in sentence with space, removes non-alphab. char.
+    let trgtWrd = sntcSplt[0] // Assigns first word.
+
+    sntcSplt.forEach(wordIndex => {
+        if(wordIndex.length > trgtWrd.length) { // If the length of the each word in sentence is longer than target.
+            trgtWrd = wordIndex // Assign it as a target word.
+        }
+    });
+    
+    return trgtWrd
+}
 
 export { longestWord };

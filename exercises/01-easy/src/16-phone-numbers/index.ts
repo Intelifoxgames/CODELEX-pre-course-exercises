@@ -1,9 +1,11 @@
 /**
  * Clean up user-entered phone numbers so that they can be sent SMS messages.
  *
- * The North American Numbering Plan (NANP) is a telephone numbering system used by many countries in North America like the United States, Canada or Bermuda. All NANP-countries share the same international country code: 1.
+ * The North American Numbering Plan (NANP) is a telephone numbering system used by many countries in North America like the United States, Canada or Bermuda. 
+ * All NANP-countries share the same international country code: 1.
  *
- * NANP numbers are ten-digit numbers consisting of a three-digit Numbering Plan Area code, commonly known as area code, followed by a seven-digit local number. The first three digits of the local number represent the exchange code, followed by the unique four-digit number which is the subscriber number.
+ * NANP numbers are ten-digit numbers consisting of a three-digit Numbering Plan Area code, commonly known as area code, followed by a seven-digit local number. 
+ * The first three digits of the local number represent the exchange code, followed by the unique four-digit number which is the subscriber number.
  *
  * The format is usually represented as:
  *
@@ -28,11 +30,51 @@
  */
 
 class PhoneNumber {
-  constructor(input: string) {}
+  input: string
+
+  constructor(input: string) {
+    this.input = input.replace(/\W/g, '') // Removes non alphanumeric chars.
+  }
 
   number() {
-    return "";
-  }
-}
+    //    +1           (613)       -995       -0253
+    // +countryCode/(areaCode)/exchangeCode/subsNumber
+
+    const regEx = /^\d+$/g // RegEx to check if string contains letters.
+    this.input = this.input.replace(/\W/g, '')
+
+
+    if (this.input.length === 11 && this.input[0] === "1") {
+      return this.input = this.input.slice(1, 11)
+    } // If input is 11 chars long and first index is "1", slice number between 1 and 11, returning 9 chars.
+    
+    if (this.input.length < 10 || this.input.length > 10) {
+      return null
+    }  // Returns null if number is more or less than 9 chars.
+
+    if(regEx.test(this.input) === false) {
+      return null // If letter, return null.
+    }
+
+
+    
+
+return this.input 
+    }
+
+    
+
+    
+
+   
+
+ 
+  
+} 
+
+
+
+
+
 
 export { PhoneNumber };

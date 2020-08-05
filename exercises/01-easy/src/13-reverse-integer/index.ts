@@ -12,6 +12,19 @@
  * reverseInt(-90) === -9
  */
 
-function reverse(int: number) {}
+function reverse(int: number) {
+    
+    // 1. Make "int" into a string.
+    // 2. Split each char with "" in the array.
+    // 3. Reverse each char.
+    // 4. Join back each char.
+
+    let rvrsdNum = int.toString().split("").reverse().join("") 
+
+    // Return back correct sign at the beginning.
+    // Turn string backt to number.
+
+    return Math.sign(int) * parseInt(rvrsdNum)
+}
 
 export { reverse };

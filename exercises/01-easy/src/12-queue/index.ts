@@ -13,9 +13,16 @@
  */
 
 class Queue {
-  add(n: number) {}
+  
+  elements:number[] = [] 
+  
+  add(n: number) {
+    this.elements.push(n)  // Adds "n" to the "elements" array.
+  }
 
-  remove() {}
+  remove() {
+    return this.elements.shift() // Removes "n" from "elements", returns "n", making a natural queue.
+  }
 }
 
 export { Queue };

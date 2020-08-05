@@ -1,9 +1,9 @@
 export {};
 
-const isHappy = "true";
+const isHappy: boolean = true;
 
-if (isHappy == false) {
-  console.log("I am happy");
+if (isHappy === true) {
+  console.log("I am happy"); // === Compares also a type, == only value
 } else {
   console.log("I am not happy");
 }

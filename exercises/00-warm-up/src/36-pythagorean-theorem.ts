@@ -6,7 +6,19 @@ export {};
  * https://en.wikipedia.org/wiki/Pythagorean_theorem
  */
 
-const pythagoreanTheorem = () => {};
 
-console.log(pythagoreanTheorem(2, 4)); // Expected result: 4.47213595499958
-console.log(pythagoreanTheorem(3, 4)); // Expected result: 5
+const pythagoreanTheorem = (left: number, right: number): number => {
+
+    let leftSide = (left * left)
+
+    let rightSide = (right * right)
+
+    let sumOfSides = leftSide + rightSide
+
+    let sqrt = Math.sqrt(sumOfSides)
+
+    return sqrt
+};
+
+console.log(pythagoreanTheorem(2, 4)); // Expected result: 4.47213595499958 // Sqrt of 20.
+console.log(pythagoreanTheorem(3, 4)); // Expected result: 5 // Sqrt of 25.

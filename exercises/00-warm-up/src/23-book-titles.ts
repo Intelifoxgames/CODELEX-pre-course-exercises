@@ -11,6 +11,13 @@ const books = [
   }
 ];
 
-const getTheTitles = () => {};
+
+const getTheTitles = (arr): string[] => {
+  
+  const arrOfTittle = arr.map(books => books.title) // Extracts the title of each book.
+  return arrOfTittle
+
+}
+
 
 console.log(getTheTitles(books)); // Expected output: ['4 hour work week', 'Tools of Titans']

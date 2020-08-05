@@ -9,10 +9,30 @@ export {};
  * Find a way to add 1% to all currency conversions (think about the DRY (don't repeat yourself) principle)
  */
 
+const usdRate = 1.4
+const brlRate = 6.9
+const fee = 1.01
+
+function convertToCurrency(amount: number, conversationRate: number): number {
+    return amount * conversationRate
+}
+
+function addTransactionFee(amount: number): number {
+    return amount * fee
+}
+
 // You are allowed to change this function
-function convertToUSD(price) {}
+function convertToUSD(price) {
+    const convToUs = addTransactionFee(convertToCurrency(price, usdRate))
+    return (Math.round(convToUs * 100) / 100)  // Rounds to two decimal places.
+
+    
+}
 // You are allowed to change this function
-function convertToBRL(price) {}
+function convertToBRL(price) {
+    const convToBr = addTransactionFee(convertToCurrency(price, brlRate))
+    return (Math.round(convToBr * 100) / 100) // Rounds to two decimal places.
+}
 
 const product = "You don't know JS";
 const price = 12.5;

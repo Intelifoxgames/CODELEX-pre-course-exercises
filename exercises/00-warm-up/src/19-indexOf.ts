@@ -9,8 +9,10 @@ export {};
 
 // You are allowed to edit only this function
 function remove(arr: any[], valueToRemove): any[] {
-  const copiedArr = [...arr] // Whole aray spread.
-  const removed = copiedArr.splice(arr.indexOf(valueToRemove), 1) // At the index of value to remove, remove 1 item from thr array.
+  
+  let copiedArr = [...arr] // Copy whole aray value spread.
+  copiedArr.splice(arr.indexOf(valueToRemove), 1) 
+  // At the index of value to remove, remove 1 item from the array.
   return copiedArr
 }
 
@@ -27,5 +29,5 @@ console.log(newNames);
   Expected output:
   
       [1, 3]
-      [John, Alice]
+      ["John", "Alice"]
 */

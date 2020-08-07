@@ -23,11 +23,9 @@ function anagrams(stringA: string, stringB: string) {
     const charStrA = stringA.replace(/\W/g, '').split("").sort().join("").toLowerCase() 
     const charStrB = stringB.replace(/\W/g, '').split("").sort().join("").toLowerCase() 
     
-    if(charStrA === charStrB) {
-        return true
-    } else {
-        return false
-    }
+    return charStrA === charStrB 
+    // If "charStrA" = charStrB, return true.
+
 
 }
 

@@ -1,6 +1,6 @@
 export {};
 
-const removeFromArray = function(arr = [0], intToRmvOne = 0, intToRmvTwo = 0) {
+const removeFromArray = function(arr = [0], intToRmvOne = 0, intToRmvTwo = 0) { // Or "...args" instead of both intToRmv.
     for(let i = 0; i < arr.length; i++) {
         // If arr[i] is equal to an argument of the item to remove, it is spliced.
         if(arr[i] === intToRmvOne || intToRmvTwo) {

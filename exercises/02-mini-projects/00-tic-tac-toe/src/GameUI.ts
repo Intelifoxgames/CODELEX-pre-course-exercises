@@ -32,10 +32,10 @@ const draw = (game: Game) => {
   });
 
   if (game.isTie()) {
-    info.innerText = `It's a tie!`;
+    info.innerText = `It's a tie!`; // If there is NO winner
     button.removeAttribute("disabled");
     button.className = "button button-hoverable";
-  } else if (game.getWinner() !== "-") {
+  } else if (game.getWinner() !== "-") { // If there IS winner
     info.innerText = `Nice, ${game.getWinner()} won`;
     button.removeAttribute("disabled");
     button.className = "button button-hoverable";

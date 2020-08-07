@@ -170,11 +170,10 @@ describe("Tic-Tac-Toe", () => {
 
 
     expect(game.getCells()).toEqual([
-      "X", "O", "O",
-      "O", "O", "X",
-      "X", "X", "O"
+      "X", "X", "O",
+      "O", "X", "X",
+      "X", "O", "O"
     ]);
-    expect(game.getTurn()).toBe("X");
     expect(game.getWinner()).toBe("-");
     expect(game.isTie()).toBe(true);
   });

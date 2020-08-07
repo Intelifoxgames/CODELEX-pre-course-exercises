@@ -14,14 +14,14 @@
 
 function longestWord(sen: string) {
     let sntcSplt: string[] = sen.split(/\W/g) // Split each word in sentence with space, removes non-alphab. char.
-    let maxLetters = 0
+    let crrntLngstWrd = 0
     let longest = ""
     // Assigns first word. First word will be compared to the rest and the longest will be determined.
 
-    sntcSplt.forEach(word => {
-        if(word.length > maxLetters) { //Checks if each word is longer that previous. 
-            maxLetters = word.length // If the length of the each word in sentence is longer than 0....
-            longest = word // The longest word is stored here.
+    sntcSplt.forEach(word => { // For each word in "sntcSplt"...
+        if(word.length > crrntLngstWrd) { // If that word is longer than previous word, starting by default from 0...
+            crrntLngstWrd = word.length // Its length is stored and... 
+            longest = word // The word itself is stored here.
         }
     });
     

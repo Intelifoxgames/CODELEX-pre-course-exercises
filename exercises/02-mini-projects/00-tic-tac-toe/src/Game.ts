@@ -3,13 +3,18 @@ export type XO = "X" | "O" | "-";
 export class Game {
   cells: XO[] = ["-", "-", "-", "-", "-", "-", "-", "-", "-"] // Game board.
   turn: XO = "X" // First turn in new Game draws "X"
+  turnCount: number = 0
+
+
 
   getCells(): XO[] {
-    return this.cells; // 
+    return this.cells; // Draw cells.
   }
 
   getTurn(): XO {
+    
     return this.turn; // Gets current turn, "X" or "O".
+    
   }
 
   getWinner(): XO {
@@ -39,29 +44,42 @@ export class Game {
   }
 
   isTie(): boolean {
-    return false;
+    if(this.turnCount === 9 && this.getWinner() === "-") {
+      return true
+    } else {
+      return false
+    }
   }
+    
+    
 
   onClick(i: number): void { // When user clicks on the field...
     
 
-    if(this.cells[i] === "-" && this.getWinner() === "-") { // If the cell is empty and the game has no winner ...
+    if(this.cells[i] === "-" && this.getWinner() === "-") { // If the cell is empty and the game has no winner (winner is "-")...
 
       this.cells[i] = this.getTurn() // In "this.cells[i]" the current value of "this.turn" is drawn.
+      
+    
     
       if(this.turn === "X") { // If current value of "this.turn" is "X"...
         this.turn = "O" // ...method changes it to "O", and sends it to "getTurn()".
+        
       } else {
         this.turn = "X" // If the value is other ("O"), "this.turn" value changes back to "X".
+        
       }
-
+     
     }
-    
-
+    this.turnCount++
+    console.log(this.turnCount)
+   
   }
 
   restart(): void {
     this.cells.fill("-", 0, 9) // On "Play Again" fills cells with "-".
     this.turn = "X"
   }
+
+
 }

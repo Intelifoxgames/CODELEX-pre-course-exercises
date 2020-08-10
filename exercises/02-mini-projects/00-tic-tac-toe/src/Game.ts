@@ -2,7 +2,7 @@ export type XO = "X" | "O" | "-";
 
 export class Game {
   cells: XO[] = ["-", "-", "-", "-", "-", "-", "-", "-", "-"] // Game board.
-
+  
  
 
   getCells(): XO[] {
@@ -10,12 +10,20 @@ export class Game {
   }
 
   getTurn(): XO {
-    const countX = this.cells.filter(it => it === "X").length
-    const countO = this.cells.filter(it => it === "O").length
-    return countX === countO ? "X" : "O"; // Gets current turn, "X" or "O".
+    const countMinus = this.cells.filter((it) => it === "-").length
+    const countX = this.cells.filter((it) => it === "X").length
+    const countO = this.cells.filter((it) => it === "O").length
+    
+
+     if(countX === countO) {
+       return "X"
+      } else {
+        return "O"
+        } // Gets current turn, "X" or "O". 
   }
 
   getWinner(): XO {
+
    if(this.areCellsEqual(0, 1, 2)) {
       return this.cells[0]
   
@@ -54,21 +62,30 @@ export class Game {
   }
 
   private areCellsEqual(x: number, y: number, z: number) {
-    return this.cells[x] !== "-" && this.cells[y] && this.cells[y] === this.cells[z]
+    return (this.cells[x] !== "-" && 
+    this.cells[x] === this.cells[y] && 
+    this.cells[y] === this.cells[z])
   }
 
+
   isTie(): boolean {
-    // If thre are no fields with "-"
+    if(this.cells.every((currentValue) => currentValue !== "-") && this.getWinner() === "-") {
+      return true 
+    }
+
+    // If there are no cells with "-" (count "-" and expect that they are 0)
+    // And if there are no winner
     // And no winner
     // 9 cliks, no winner
+     
+
     return false
   }
     
   onClick(i: number): void { // When user clicks on the field...
-    if(this.cells[i] !== "-") {
-      return
+    if(this.cells[i] == "-" && this.getWinner() === "-") {
+      this.cells[i] = this.getTurn()
     }
-    this.cells[i] = this.getTurn()
   }
 
   restart(): void {

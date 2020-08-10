@@ -30,7 +30,25 @@ describe("Tic-Tac-Toe", () => {
     expect(game.isTie()).toBe(false);
   });
 
-  it("should be able to click once", () => {
+  it("both players should be able to place their marks", () => {
+    const game = new Game();
+    game.onClick(0)
+    game.onClick(1)
+    game.onClick(2)
+    game.onClick(3)
+   
+
+    expect(game.getCells()).toEqual([
+      "X", "O", "X",
+      "O", "-", "-",
+      "-", "-", "-"
+    ]);
+    expect(game.getTurn()).toBe("X");
+    expect(game.getWinner()).toBe("-");
+    expect(game.isTie()).toBe(false);
+  });
+
+  it("player should be able to click only once", () => {
     const game = new Game();
     game.onClick(0)
     game.onClick(0)
@@ -57,7 +75,7 @@ describe("Tic-Tac-Toe", () => {
 
     expect(game.getCells()).toEqual([
       "-", "-", "-",
-      "O", "O", "-",
+      "X", "X", "X",
       "-", "O", "O"
     ]);
     expect(game.getWinner()).toBe("X");
@@ -154,17 +172,19 @@ describe("Tic-Tac-Toe", () => {
     expect(game.isTie()).toBe(false);
   });
 
-  it("should be a tie when all fields are filled", () => {
+  it("should be a tie when all fields are filled and there are no winners", () => {
     const game = new Game();
-    game.onClick(0)
-    game.onClick(1)
-    game.onClick(2)
-    game.onClick(3)
-    game.onClick(4)
-    game.onClick(5)
-    game.onClick(6)
-    game.onClick(7)
-    game.onClick(8)
+    game.onClick(0) // X
+    game.onClick(3) // O
+    game.onClick(6) // X
+
+    game.onClick(7) // O
+    game.onClick(4) // X
+    game.onClick(2) // O
+
+    game.onClick(1) // X
+    game.onClick(8) // O
+    game.onClick(5) // O
 
 
 

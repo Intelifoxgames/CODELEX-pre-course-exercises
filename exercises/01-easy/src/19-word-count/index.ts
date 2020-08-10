@@ -20,7 +20,7 @@ class Words {
     // Creates an empty object.
     
 
-    console.log(spltStr)
+    // console.log(spltStr)
     /* splitStr =  
     ['one',  'fish',
       'two',  'fish',

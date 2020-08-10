@@ -18,11 +18,10 @@ describe("Tic-Tac-Toe", () => {
   it("on click should be able to fill in cell correctly", () => {
     const game = new Game();
     game.onClick(0)
-    game.onClick(1)
-    game.onClick(2)
+   
 
     expect(game.getCells()).toEqual([
-      "X", "O", "X",
+      "X", "-", "-",
       "-", "-", "-",
       "-", "-", "-"
     ]);
@@ -47,19 +46,19 @@ describe("Tic-Tac-Toe", () => {
     expect(game.isTie()).toBe(false);
   });
 
-  it("should win if the whole row is filled with X", () => {
+  it("should win if the first row is filled with X", () => {
     const game = new Game();
-    game.onClick(0)
     game.onClick(3)
-    game.onClick(1)
+    game.onClick(7)
     game.onClick(4)
-    game.onClick(2)
+    game.onClick(8)
+    game.onClick(5)
   
 
     expect(game.getCells()).toEqual([
-      "X", "X", "X",
+      "-", "-", "-",
       "O", "O", "-",
-      "-", "-", "-"
+      "-", "O", "O"
     ]);
     expect(game.getWinner()).toBe("X");
     expect(game.isTie()).toBe(false);

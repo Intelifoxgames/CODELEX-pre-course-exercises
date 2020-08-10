@@ -33,48 +33,45 @@ class PhoneNumber {
   input: string
 
   constructor(input: string) {
-    this.input = input.replace(/\W/g, '') // Removes non alphanumeric chars.
+    this.input = input.replace(/[^0-9]+/g, "")
+    // Replaces string's non-numeric chars with "".
+    // Returns new string, but in this case overwrites the original.
   }
 
   number() {
-    //    +1           (613)       -995       -0253
-    // +countryCode/(areaCode)/exchangeCode/subsNumber
 
-    const regEx = /^\d+$/g // RegEx to check if string contains letters.
-    this.input = this.input.replace(/\W/g, '')
+      //    +1           (613)       -995       -0253
+      // +countryCode/(areaCode)/exchangeCode/subsNumber
 
+    if (this.input.length === 11) {
+      if (this.input[0] !== "1") {
+        return null
+        // Invalid when 11 digits does not start with a 1.
+      }
 
-    if (this.input.length === 11 && this.input[0] === "1") {
-      return this.input = this.input.slice(1, 11)
-    } // If input is 11 chars long and first index is "1", slice number between 1 and 11, returning 9 chars.
-    
-    if (this.input.length < 10 || this.input.length > 10) {
+      this.input = this.input.substring(1, this.input.length) 
+      // Makes 11 digit number without a country code (10 digit number).
+      // Returns the new string, does not mutate the original.
+    }
+
+    if (this.input.length !== 10) {
+      return null 
+      // If number is with 9, 12 digits...
+      // (not 10, including letter and number(because they are longer than 10))... 
+      // return null.
+    }
+
+    if (this.input.charAt(0) === "0" || this.input.charAt(0) === "1") {
       return null
-    }  // Returns null if number is more or less than 9 chars.
-
-    if(regEx.test(this.input) === false) {
-      return null // If letter, return null.
+      // Invalid if area code starts with 0 or 1.
     }
-
-
-    
-
-return this.input 
+    if (this.input.charAt(3) === "0" || this.input.charAt(3) === "1") {
+      return null
+      // Invalid if exchange code starts with 0 or 1.
     }
-
-    
-
-    
-
-   
-
- 
-  
-} 
-
-
-
-
+    return this.input
+  }
+}
 
 
 export { PhoneNumber };

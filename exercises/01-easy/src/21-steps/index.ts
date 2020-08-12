@@ -19,20 +19,21 @@
  *            '####'
  */
 
-function steps(n: number) {
-    for(let i = 1; i <= n; i++){
+function steps(lines: number) {
+    for(let i = 1; i <= lines; i++){
         let char = ''
+        // Initialize main line draw engine loop. Loop will generate...
+        // ...lines as many times as stated in "lines" parameter.
         
-         // Adds whitespace to the left side of the #.
-        // Draws whitespace the requirement that the main engine loop.
         for(let j = 1; j <= i; j++){
             char += '#'
         }
+        // Draws "#" as many times as "i" will loop till "lines" number.  
 
-        //Add the white space to the right.
-        for(let k = 1; k <= n - i; k++){
+        for(let k = 1; k <= lines - i; k++){
           char += ' '
         }
+        //Add the white space to the right after "#".
 
         console.log(char)
       }

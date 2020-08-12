@@ -35,7 +35,8 @@ class PhoneNumber {
   constructor(input: string) {
     this.input = input.replace(/[^0-9]+/g, "")
     // Replaces string's non-numeric chars with "".
-    // Returns new string, but in this case overwrites the original.
+    // Returns new string...
+    // ...but in this case overwrites the original in this instance of class.
   }
 
   number() {
@@ -46,12 +47,12 @@ class PhoneNumber {
     if (this.input.length === 11) {
       if (this.input[0] !== "1") {
         return null
-        // Invalid when 11 digits does not start with a 1.
+        // Number is invalid when 11 digits does not start with a 1.
       }
 
       this.input = this.input.substring(1, this.input.length) 
-      // Makes 11 digit number without a country code (10 digit number).
-      // Returns the new string, does not mutate the original.
+      // Makes 11 digit number without a country code into 10 digit number.
+      // Returns the new string, does not mutate the original in this statement.
     }
 
     if (this.input.length !== 10) {
@@ -72,6 +73,4 @@ class PhoneNumber {
     return this.input
   }
 }
-
-
 export { PhoneNumber };

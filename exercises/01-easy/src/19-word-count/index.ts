@@ -12,13 +12,12 @@
 class Words {
   count(str: string) {
 
-    const spltStr = str.trim().split((/\s+/)) 
+    const spltStr = str.trim().split(/\s+/) 
     // Trims the string from leading and trailing whitspaces,
-    // & splits each word into the array.
+    // and splits each word into the array.
     
     let count = Object.create(null)
-    // Creates an empty object.
-    
+    // Creates an empty(null) object where count will be stored.
 
     // console.log(spltStr)
     /* splitStr =  
@@ -27,24 +26,20 @@ class Words {
       'red',  'fish',
       'blue', 'fish'] */
     
-    
       for(let i = 0; i < spltStr.length; i++) { 
       let word = spltStr[i].toLowerCase()
-      // Each word of the string makes lower case.
+      // Makes each word in the array lowercased.
 
       if(!count[word]) {
         count[word] = 1
-        // If word is not in the count object, it is solo.
+      // If word is not in the count object, it is solo.
+
       } else {
         count[word]++
-        // Else, if it is present in the object, word gets + 1 count.
+      // Else, if it is present in the object, word gets + 1 count.
       }
     }
-
     return count
-
-    
-
   }
 }
 

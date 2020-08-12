@@ -21,23 +21,31 @@ class Stack {
 // to go in case of removing.
 
 
-  stack:number[] = [] // Stack of numbers.
-  top = 0 // The top of the stack. The number of "n" that is on top of the stack.
+  stack:number[] = [] 
+  // Empty stack of numbers.
+  
+  top = 0 
+  // "Top" will indicate the number of plates in the stack.
   
   push(n: number) {
-    this.stack[this.top] = n // Numbers "n" will be pushed in the "stack".
-    this.top += 1 // When pushed, the top of the stack +1.
+    this.stack[this.top] = n 
+    // "Top" will indicate the number of plates in the stack.
+    
+    this.top += 1 
+    // When pushed, the number of the stack will add +1.
   }
 
   pop() {
-    this.top -= 1 // Pops out from the stack the last placed "n".
-    return this.stack.pop()
+    this.top -= 1 
+    // When removed (popped) the plate, the number of items in stack -1.
     
+    return this.stack.pop()
+    // Remove the last placed plate on the stack.
   }
 
   peek() {
-    return this.stack[this.top - 1] // Shows the top "n" on the stack.
-    console.log(this.stack)
+    return this.stack[this.top - 1] 
+    // Shows the upper plate in the stack.
   }
 }
 

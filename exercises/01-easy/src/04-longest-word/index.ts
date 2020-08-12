@@ -13,19 +13,27 @@
  */
 
 function longestWord(sen: string) {
-    let sntcSplt: string[] = sen.split(/\W/g) // Split each word in sentence with space, removes non-alphab. char.
+    let sntcSplt: string[] = sen.split(/\W/g) 
+    // Split each word in sentence with space, removes non-alphab. chars.
+    // Returns an array.
+
     let crrntLngstWrd = 0
-    let longest = ""
+    let actlLngstWrd = ""
     // Assigns first word. First word will be compared to the rest and the longest will be determined.
 
-    sntcSplt.forEach(word => { // For each word in "sntcSplt"...
-        if(word.length > crrntLngstWrd) { // If that word is longer than previous word, starting by default from 0...
-            crrntLngstWrd = word.length // Its length is stored and... 
-            longest = word // The word itself is stored here.
+    sntcSplt.forEach(word => { 
+        // For each word in "sntcSplt"...
+        
+        if(word.length > crrntLngstWrd) { 
+            // If that word is longer than current longest word, starting by default from 0...
+            
+            crrntLngstWrd = word.length 
+            // Testing word length is stored to "crrntLngstWrd" and... 
+            
+            actlLngstWrd = word 
+            // And the word itself is stored in actualLongestWord.
         }
     });
-    
-    return longest
+    return actlLngstWrd
 }
-
 export { longestWord };

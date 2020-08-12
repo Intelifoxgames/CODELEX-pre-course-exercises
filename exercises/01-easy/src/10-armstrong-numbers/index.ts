@@ -13,20 +13,24 @@
 
 function validate(n: number) {
     
-    const number = n.toString().split("").map(it => Number(it)) // Seperates number by digits.
-    const numOfDigits = n.toString().length // Determines length of the number.
+    const number = n.toString().split("").map(it => Number(it)) 
+    // Convert input number to a string...
+    // Then split it into an array...
+    // Then each char in a string map back to number.
+
+    const numOfDigits = n.toString().length 
+    // Determines length of the input number.
    
    let result = 0
 
-   number.map(digit => {
+   number.forEach(digit => {
        result += Math.pow(digit, numOfDigits)
+       // Each number is reaised by the power of input number of digits.
    })
 
-   return n === result
-
-
+    return n === result 
+    // If the result is equal to input number, it is the Armstrong number.
 }
-
 export { validate };
 
 

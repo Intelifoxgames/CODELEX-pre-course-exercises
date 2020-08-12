@@ -2,17 +2,19 @@ export {};
 
 const count = (string, string2) => {
     
-    const text = string // Tthe text where string occurrences will be counted.
+    const text = string 
+    // The text where string occurrences will be counted.
+    
     const regExp = new RegExp(string2, "gi") 
-    // Creates a new RegExp with a value of searching globally and insesitively 
-    // the string to count ("string2").
+    // Creates a new RegExp with a value of searching globally and insesitively...
+    // ...in the "text" to count "string2" occurences.
     
     
     const count = (text.match(regExp)).length 
-    // Match with regExp will return the length of newly created array with words from "text" that matches with "string2".
+    // Match with regExp will return the length of newly created array...
+    // ...with words from "text" that matches with "string2".
 
     return count
-
 };
 
 console.log(count("The quick brown fox jumps over the lazy dog", "the")); // Expected output: 2

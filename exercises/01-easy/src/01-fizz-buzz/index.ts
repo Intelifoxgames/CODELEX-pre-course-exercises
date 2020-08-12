@@ -20,13 +20,17 @@ function fizzBuzz(n: number) {
     
     for(let i = 1; i <= n; i++) {  
         if(i % 15 === 0) {
-            console.log("fizzbuzz") // If start with anything else, it won't get to others.
+            console.log("fizzbuzz") 
+            // If "n" remainder of 15 is 0, it is fizzbuzz. (in test there are only 15 inputs)
+            // If start with anything else than 15, it won't get to others 5 and 3, since those are "else if".
+
         } else if (i % 5 === 0) {
             console.log("buzz") 
         } else if(i % 3 === 0) {
             console.log("fizz")
         } else {
             console.log(i)
+            // If no conditins met, the plain number is printed.
         }   
     }
 }

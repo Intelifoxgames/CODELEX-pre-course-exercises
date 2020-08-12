@@ -37,17 +37,29 @@
 class Matrix {
   constructor(private matrix: string) {
     this.matrix = matrix;
+    // Assigns constructor's property to this instance of the class.
   }
+
+  // !!! Input - string, output - number !!!
 
   get rows() {
     return this.matrix
-      .split('\n') // Splits the matrix at the "\n".
-      .map(r => r.split(' ').map(v => parseInt(v))) // Then splits each char and then parse to a number.
+      .split('\n') 
+      // Splits the all matrix tests at the "\n" (according to test).
+      // Return in new aray without "\n".
+      
+      .map(row => row.split(' ')
+      // Splits again each string in array by space.
+      .map(str => parseInt(str))) 
+      // Then turn each string into a number.
   }
 
   get columns() {
-    return this.rows[0] // First elements of a row
-    .map((j,i) => this.rows.map(r => r[i])) // Map each row with an index.
+    return this.rows[0] 
+    // Get first elements of a row...
+    
+    .map((j, i) => this.rows.map(row => row[i])) 
+    // Map each column with a row, moving from left to right.
   }
 }
 

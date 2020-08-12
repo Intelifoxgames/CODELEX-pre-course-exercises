@@ -14,19 +14,21 @@
 
 function anagrams(stringA: string, stringB: string) {
     
-    // 1. Removes non-alphanumeric characters with RegEx.
-    // 2. Splits string by characters and puts into an array.
-    // 3. Sorts chars in the array.
+    const charStrA = stringA.replace(/\W/g, '').split("").sort().join("").toLowerCase() 
+    const charStrB = stringB.replace(/\W/g, '').split("").sort().join("").toLowerCase() 
+
+    // 1. Replaces non-alphanumeric characters with empty string.
+    // 2. Splits string by characters and puts them into an array.
+    // 3. Sorts chars in the array (standart way).
     // 4. Joins sorted array back to string.
     // 5. Makes string lowercase.
     
-    const charStrA = stringA.replace(/\W/g, '').split("").sort().join("").toLowerCase() 
-    const charStrB = stringB.replace(/\W/g, '').split("").sort().join("").toLowerCase() 
-    
-    return charStrA === charStrB 
+    if(charStrA === charStrB) {
     // If "charStrA" = charStrB, return true.
-
-
+        
+        return true
+    } else {
+        return
+    }
 }
-
 export { anagrams };

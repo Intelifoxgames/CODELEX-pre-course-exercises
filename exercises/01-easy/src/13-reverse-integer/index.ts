@@ -14,17 +14,15 @@
 
 function reverse(int: number) {
     
-    // 1. Make "int" into a string.
-    // 2. Split each char with "" in the array.
-    // 3. Reverse each char.
-    // 4. Join back each char.
-
     let rvrsdNum = int.toString().split("").reverse().join("") 
-
-    // Return back correct sign at the beginning.
-    // Turn string backt to number.
+    // 1. Turn input number into a string.
+    // 2. Split each char with, save in the array.
+    // 3. Reverse the array.
+    // 4. Join back each char into a string.
 
     return Math.sign(int) * parseInt(rvrsdNum)
+    // Returns the sign of each input number.
+    // Turns string back to number and adds original input number's sign.
 }
 
 export { reverse };

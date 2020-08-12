@@ -9,12 +9,14 @@
 function parse(input: string): string {
     
     return input.split(/[ \-_]+/) 
-    // Splits string by first capital letters of each word,... 
-    // ...on a sequence of one or more commas or spaces and returns array.
+    // Splits string with RegEx by first capital letters of each word,... 
+    // ...ignoring commas or spaces and returns array.
+    
     .map(word => word.charAt(0).toUpperCase()) 
-    // Then each splitted words character is made to upper case.
+    // Then each splitted single character is made to upper case.
+    
     .join("") 
-    // Then joined back together to make acronym.
+    // Then joined back together to make an acronym.
 }
 
 export { parse };

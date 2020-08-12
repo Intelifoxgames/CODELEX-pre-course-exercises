@@ -11,14 +11,13 @@ function secondLargest(array: number[]) {
     
     console.log(array)
 
-    // The last number after pop is the (second) largest number. Return the number.
     return Math.max(...array)
+    // The last number after pop is the new (originaly second) largest number. 
+    // Return the largest number from the array spread.
 
-    // Alternate sollution: "return array.pop()", 
+    // Alternate sollution: 
+    // "return array.pop()", 
     // which will return the last number, 
     // which is the (second) largest.
-
-
 }
-
 export { secondLargest };

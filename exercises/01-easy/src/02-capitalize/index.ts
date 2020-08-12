@@ -12,10 +12,14 @@
  */
 
 function capitalize(str: string) {
-    return str.split(' ').map(str => str.charAt(0).toUpperCase() + str.substring(1)).join(' ') 
-    // First spilt each word with " ".
-    // Then map with a callback function every words first letter and make ir uppercase.
-    // Join each word with a space.
+    return str.split(' ')
+    // First spilt each word with " " (condition that there is a space between and after the word)... 
+    // And return as an array.
+    
+    .map(str => str.charAt(0).toUpperCase() + str.substring(1)).join(' ') 
+    // Then map with a callback function every word's first letter and make it uppercase.
+    // Joins back with the substring the rest of a word.
+    // Join each word with a space in a whole string.
 }
 
 export { capitalize };

@@ -8,23 +8,28 @@
  */
 
 class HighScores {
-  scores: number[];
+  scores: number[]
   constructor(scores: number[]) {
-    this.scores = scores;
+    this.scores = scores
+    // Asign the the construtor parameters to this instance of class.
   }
 
   get latest() {
-    return this.scores[this.scores.length - 1] // Returns latest score from array.
+    return this.scores[this.scores.length - 1] 
+    // Returns the latest score from array 
+    // (-1 because .length returns a number higher by one).
   }
 
   get personalBest() {
-    return Math.max(...this.scores) // Returns hihest number from all array of scores.
+    return Math.max(...this.scores) 
+    // Spread the score array.
+    // Returns highest number from whole array elements.
   }
 
   get personalTopThree() {
     return this.scores.sort((a,b) => b - a).slice(0, 3) 
-    // Sorts numbers from largest to smallest.
-    // Then returns in the array first three.
+    // Sort numbers from largest to smallest.
+    // Then returns from the array in the new array first three numbers.
   }
 }
 

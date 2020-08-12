@@ -26,26 +26,34 @@
 function steps(n: number) {
     
       let steps = 0
+      // Counts steps actions.
+      
       while(n > 1) {
+        // While input number is not 1...
+
         if (n % 2 === 0) {
           n = n / 2
+          // If input number is even, divide...
+
         } else {
           n = n * 3 + 1
+          // Else, if it is even, do this.
+
         }
         steps++
+        // For each action add one step.
       }
 
       if (n <= 0) {
         throw Error('Only positive numbers are allowed')
       }
+      // If the input number is negative, throw error.
     
       return steps
 }
-
 export { steps };
 
 // Alternate ternary sollution:
-
 /* while(n > 1){
         n % 2 === 0 ? n = n / 2 : n = (n * 3) + 1
         steps++

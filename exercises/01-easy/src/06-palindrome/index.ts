@@ -16,11 +16,16 @@
 function palindrome(str: string) {
 
     let reverseStr = str.split('').reverse().join(''); 
-    // Splits the string and makes a new array, 
-    // then reverses chars in array and joins back into a string.
+    // Splits the string into the new array...
+    // ...then reverses chars and joins back into a string, store in let.
 
-    return reverseStr === str
+    if(reverseStr === str) {
+    // Compares if original string an reversed is equal.
+
+        return true
+    }
+    return
+    
 
 }
-
 export { palindrome };

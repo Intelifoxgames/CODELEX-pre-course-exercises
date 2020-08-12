@@ -12,11 +12,12 @@
 function vowels(s: string) {
     const vowels = ["a", "e", "i", "o", "u"] 
     const sArr = s.toLowerCase().split("") 
-    // Make string input lowercased and split by char into an array.
+    console.log(sArr)
+    // Make string input lowercased and split by chars into the array.
+    
     return sArr.filter(char => vowels.indexOf(char) > -1).length 
-    // Filters lowercased chars in an array.
-    // Takes index of chars in vowels array that are more than - 1 (from 0 possition).
-
+    // Filters chars in an array.
+    // Compares each char of "sArr" with "vowels"  from - 1 (from 0 possition).
+    // Return the length of matching chars with vowels.
 }
-
 export { vowels };

@@ -14,14 +14,18 @@
 
 class Queue {
   
-  elements:number[] = [] 
+  elements:number[] = []
+  // Empty queue. 
   
   add(n: number) {
-    this.elements.push(n)  // Adds "n" to the "elements" array.
+    this.elements.push(n)  
+    // Adds the element to the end of the queue.
   }
 
   remove() {
-    return this.elements.shift() // Removes "n" from "elements", returns "n", making a natural queue.
+    return this.elements.shift() 
+    // Removes the element from the beginning of the queue...
+    // Returns removed element.
   }
 }
 
